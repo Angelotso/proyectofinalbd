@@ -1,0 +1,20 @@
+use tienda_bicicleta;
+
+alter table persona_telefono add foreign key (DNI_persona) references persona(DNI);
+alter table persona_correo_electronico add foreign key (DNI_persona) references persona(DNI);
+alter table usuario add foreign key (DNI) references persona(DNI);
+alter table administrador add foreign key (DNI)references persona(DNI);
+alter table destacado add foreign key (DNI) references persona(DNI);
+alter table no_destacado add foreign key (DNI) references persona(DNI);
+alter table pedido add foreign key (DNI_cliente)references usuario(DNI);
+alter table almacena add foreign key (id_pedido)references pedido(id_pedido);
+alter table almacena add foreign key (id_producto)references producto(id_producto);
+alter table administra add foreign key (DNI_admin)references administrador(DNI);
+alter table administra add foreign key (id_producto)references producto(id_producto);
+alter table bicicleta add foreign key (id_producto)references producto(id_producto);
+alter table accesorio add foreign key (id_producto)references producto(id_producto);
+alter table kit_herramientas add foreign key(id_producto) references bicicleta(id_producto);
+alter table bici_freestyle add foreign key(id_producto) references bicicleta(id_producto);
+alter table bici_infantil add foreign key(id_producto) references bicicleta(id_producto);
+alter table bici_montañera add foreign key(id_producto) references bicicleta(id_producto);
+alter table bici_urbana add foreign key(id_producto) references bicicleta(id_producto);
